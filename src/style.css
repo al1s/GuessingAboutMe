@@ -6,13 +6,13 @@
 
 body {
   background-color: var(--neutral-color);
-  font-family: 'Orbitron', Lato, 'PT Sans', -apple-system, BlinkMacSystemFont,
-    Roboto, Ubuntu, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Orbitron", Lato, "PT Sans", -apple-system, BlinkMacSystemFont,
+    Roboto, Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
 }
 
 .main {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 2fr 2fr 1fr;
