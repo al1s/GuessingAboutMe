@@ -20,6 +20,7 @@
 // Greet and ask for the user name
 var userName = prompt('My name is Alex. What is your name?');
 alert('Hello ' + userName + '. I\'d like to offer you play a guessing game.');
+console.log('The user entered: ' + userName);
 
 // questions' pool
 var questName = 'Do you believe my full name is Aleksandr Vladimirovich?';
@@ -55,24 +56,31 @@ var answerStates = 'I\'ve worked only in Greater Seattle area.';
 
 // UI part
 var userInputName = prompt(questName);
+console.log('The user guess for the 1st question: ' + userInputName);
 if (gotYes(userInputName)) alert(answerTrue + ' ' + answerName);
 else alert(answerFalse + ' ' + answerName);
 
 var userInputMotoManufacturer = prompt(questMotoManufacturer);
+console.log(
+  'The user guess for the 2nd question: ' + userInputMotoManufacturer
+);
 if (gotYes(userInputMotoManufacturer))
   alert(answerFalse + ' ' + answerMotoManufacturer);
 else alert(answerTrue + ' ' + answerMotoManufacturer);
 
 var userInputRussianSchools = prompt(questRussianSchools);
+console.log('The user guess for the 3rd question: ' + userInputRussianSchools);
 if (gotYes(userInputRussianSchools))
   alert(answerFalse + ' ' + answerRussianSchools);
 else alert(answerTrue + ' ' + answerRussianSchools);
 
 var userInputTibet = prompt(questTibet);
+console.log('The user guess for the 4th question: ' + userInputTibet);
 if (gotYes(userInputTibet)) alert(answerFalse + ' ' + answerTibet);
 else alert(answerTrue + ' ' + answerTibet);
 
 var userInputStates = prompt(questStates);
+console.log('The user guess for the 5th question: ' + userInputStates);
 if (gotYes(userInputStates)) alert(answerFalse + ' ' + answerStates);
 else alert(answerTrue + ' ' + answerStates);
 
