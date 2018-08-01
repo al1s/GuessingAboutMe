@@ -22,7 +22,7 @@
 // (content) add ordered list of my top places I wanted to visit
 // (style) add background to the page
 // (style) orginize fact concisely on the layout
-// (engine) add a question with controlled numeric input; four opps to answer; with tips whether the answer is too high or too low
+// + (engine) add a question with controlled numeric input; four opps to answer; with tips whether the answer is too high or too low
 // (engine) add a question with multiple correct answers stored in array; six tries to get any correct answer; with a rigth answers displayed whether the user guessed right or attempts exhausted
 // (engine) add final message with total number of questions answered correctly
 
@@ -54,6 +54,9 @@ var answerFalse = 'It\'s not correct!';
 var answerHigh = 'Too high!';
 var answerLow = 'Too low!';
 var attemptsExhausted = 'Exhausted all attempts!';
+var possibleInput = ['yes', 'y', 'yep', 'no', 'n', 'nop'];
+var answersYes = ['yes', 'y', 'yep'];
+var answersNo = ['no', 'n', 'nop'];
 
 // answers' pool
 var answerName =
@@ -77,58 +80,103 @@ var answerMultiCorrect = [
   'Netherlands'
 ];
 var meaningLife = 42;
-var answerNumeric = meaningLife; //+ Math.floor(Math.random() * meaningLife);
+var answerNumeric = meaningLife + Math.floor(Math.random() * meaningLife);
 var correctAnswersCounter = 0;
 
 // UI part
-/*
 // block of yes/no questions
-var userInputName = prompt(questName);
-console.log('The user guess for the 1st question: ' + userInputName);
-if (gotYes(userInputName)) {
-  alert(answerTrue + ' ' + answerName);
-  correctAnswersCounter += 1;
-}
-else alert(answerFalse + ' ' + answerName);
-
-var userInputMotoManufacturer = prompt(questMotoManufacturer);
-console.log(
-  'The user guess for the 2nd question: ' + userInputMotoManufacturer
-);
-if (gotYes(userInputMotoManufacturer))
-  alert(answerFalse + ' ' + answerMotoManufacturer);
-else {
-  alert(answerTrue + ' ' + answerMotoManufacturer);
-  correctAnswersCounter += 1;
+while (!possibleInput.includes(userInputName)) {
+  var userInputName = prompt(questName).toLowerCase();
+  console.log('The user guess for the 1st question: ' + userInputName);
+  if (
+    answersYes.includes(userInputName) &&
+    possibleInput.includes(userInputName)
+  ) {
+    alert(answerTrue + ' ' + answerName);
+    correctAnswersCounter += 1;
+  } else if (
+    answersNo.includes(userInputName) &&
+    possibleInput.includes(userInputName)
+  ) {
+    alert(answerFalse + ' ' + answerName);
+  }
 }
 
-var userInputRussianSchools = prompt(questRussianSchools);
-console.log('The user guess for the 3rd question: ' + userInputRussianSchools);
-if (gotYes(userInputRussianSchools))
-  alert(answerFalse + ' ' + answerRussianSchools);
-else {
-  alert(answerTrue + ' ' + answerRussianSchools);
-  correctAnswersCounter += 1;
+while (!possibleInput.includes(userInputMotoManufacturer)) {
+  var userInputMotoManufacturer = prompt(questMotoManufacturer);
+  console.log(
+    'The user guess for the 2nd question: ' + userInputMotoManufacturer
+  );
+  if (
+    answersYes.includes(userInputMotoManufacturer) &&
+    possibleInput.includes(userInputMotoManufacturer)
+  ) {
+    alert(answerFalse + ' ' + answerMotoManufacturer);
+  } else if (
+    answersNo.includes(userInputMotoManufacturer) &&
+    possibleInput.includes(userInputMotoManufacturer)
+  ) {
+    alert(answerTrue + ' ' + answerMotoManufacturer);
+    correctAnswersCounter += 1;
+  }
 }
 
-var userInputTibet = prompt(questTibet);
-console.log('The user guess for the 4th question: ' + userInputTibet);
-if (gotYes(userInputTibet)) alert(answerFalse + ' ' + answerTibet);
-else {
-  alert(answerTrue + ' ' + answerTibet);
-  correctAnswersCounter += 1;
+while (!possibleInput.includes(userInputRussianSchools)) {
+  var userInputRussianSchools = prompt(questRussianSchools);
+  console.log(
+    'The user guess for the 3rd question: ' + userInputRussianSchools
+  );
+  if (
+    answersYes.includes(userInputRussianSchools) &&
+    possibleInput.includes(userInputRussianSchools)
+  ) {
+    alert(answerFalse + ' ' + answerRussianSchools);
+  } else if (
+    answersNo.includes(userInputRussianSchools) &&
+    possibleInput.includes(userInputRussianSchools)
+  ) {
+    alert(answerTrue + ' ' + answerRussianSchools);
+    correctAnswersCounter += 1;
+  }
 }
 
-var userInputStates = prompt(questStates);
-console.log('The user guess for the 5th question: ' + userInputStates);
-if (gotYes(userInputStates)) alert(answerFalse + ' ' + answerStates);
-else {
-  alert(answerTrue + ' ' + answerStates);
-  correctAnswersCounter += 1;
+while (!possibleInput.includes(userInputTibet)) {
+  var userInputTibet = prompt(questTibet);
+  console.log('The user guess for the 4th question: ' + userInputTibet);
+  if (
+    answersYes.includes(userInputTibet) &&
+    possibleInput.includes(userInputTibet)
+  ) {
+    alert(answerFalse + ' ' + answerTibet);
+  } else if (
+    answersNo.includes(userInputTibet) &&
+    possibleInput.includes(userInputTibet)
+  ) {
+    alert(answerTrue + ' ' + answerTibet);
+    correctAnswersCounter += 1;
+  }
 }
-*/
+
+while (!possibleInput.includes(userInputStates)) {
+  var userInputStates = prompt(questStates);
+  console.log('The user guess for the 5th question: ' + userInputStates);
+  if (
+    answersYes.includes(userInputStates) &&
+    possibleInput.includes(userInputStates)
+  ) {
+    alert(answerFalse + ' ' + answerStates);
+  } else if (
+    answersNo.includes(userInputStates) &&
+    possibleInput.includes(userInputStates)
+  ) {
+    alert(answerTrue + ' ' + answerStates);
+    correctAnswersCounter += 1;
+  }
+}
+
 // numeric question
 var i = 4;
+console.group();
 console.log('The random answer: ' + answerNumeric);
 do {
   // ask for the number and check input type
@@ -164,13 +212,30 @@ do {
   }
   if (i === 0 && userInputNumeric !== answerNumeric) alert(attemptsExhausted);
 } while (i > 0 && userInputNumeric !== answerNumeric);
+console.groupEnd();
 
-// little helper function
-function gotYes(input) {
-  var inputLowerCase = input.toString().toLowerCase();
-  return (
-    inputLowerCase === 'yes' ||
-    inputLowerCase === 'yep' ||
-    inputLowerCase === 'y'
-  );
-}
+// Question with multiple correct answers
+var i = 6;
+do {
+  // ask for the country name
+  var userInputMultiCorrect = prompt(questMultiCorrect);
+  console.log('The user guess for the 7st question: ' + userInputMultiCorrect);
+
+  // check whether the user answer is correct
+  i -= 1;
+  console.log(i + ' steps left');
+  if (answerMultiCorrect.includes(userInputMultiCorrect)) {
+    alert(answerTrue);
+    correctAnswersCounter += 1;
+    i = 0;
+    console.log('Answer is correct');
+  } else alert(answerFalse + ' Attempts left: ' + i);
+} while (i > 0);
+
+alert(
+  'End of the game! ' +
+    userName +
+    ', you gave ' +
+    correctAnswersCounter +
+    ' correct answers out of 7. Congrats!'
+);
