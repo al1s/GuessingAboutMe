@@ -23,7 +23,7 @@
 // (style) add background to the page
 // (style) orginize fact concisely on the layout
 // (engine) add a question with controlled numeric input; four opps to answer; with tips whether the answer is too high or too low
-// (engine) add a question with multichoice answer; six tries to get combination; with a rigth answers displayed whether the user guessed right or attempts exhausted
+// (engine) add a question with multiple correct answers stored in array; six tries to get any correct answer; with a rigth answers displayed whether the user guessed right or attempts exhausted
 
 () => {
   // Greet and ask for the user name
@@ -46,6 +46,8 @@
     'I came to the USA in a middle of 2016. Since than I\'ve worked in 10 ' +
     'different states, including Texas, Massachusetts, Colorado, California, ' +
     'New York, Nevada and North Carolina. Do you believe it?';
+  var questNumeric = 'What is the meaning of life if it filled with surprises?';
+  var questMultiCorrect = 'What country besides the USA and Russia I\'ve been?';
 
   var answerTrue = 'You are correct!';
   var answerFalse = 'It\'s not correct!';
@@ -62,6 +64,17 @@
     'I was in Tibet and I was at the Everest\'s base camp, ' +
     'but I\'m not an alpinist and never climbed big mountains.';
   var answerStates = 'I\'ve worked only in Greater Seattle area.';
+  var answerMultiCorrect = [
+    'Mongolia',
+    'Spain',
+    'China',
+    'Italy',
+    'France',
+    'Switzerland',
+    'Netherlands'
+  ];
+  var meaningLife = 42;
+  var answerNumeric = meaningLife + Math.floor(Math.random() * meaningLife);
 
   // UI part
   var userInputName = prompt(questName);
