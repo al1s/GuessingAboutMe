@@ -18,13 +18,13 @@
 // 5. No => Sorry for inconvenience, the other parts of the page is under construction. So would you like to play?
 
 // Page flow Day 2:
-// (content) add unordered list of my working experience
-// (content) add ordered list of my top places I wanted to visit
+// +(content) add unordered list of my working experience
+// +(content) add ordered list of my top places I wanted to visit
 // (style) add background to the page
 // (style) orginize fact concisely on the layout
 // + (engine) add a question with controlled numeric input; four opps to answer; with tips whether the answer is too high or too low
 // (engine) add a question with multiple correct answers stored in array; six tries to get any correct answer; with a rigth answers displayed whether the user guessed right or attempts exhausted
-// (engine) add final message with total number of questions answered correctly
+// +(engine) add final message with total number of questions answered correctly
 
 // Greet and ask for the user name
 var userName = prompt('My name is Alex. What is your name?');
