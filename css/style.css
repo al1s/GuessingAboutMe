@@ -5,25 +5,55 @@
 }
 
 body {
-  background-color: var(--neutral-color);
+  background-image: url("../img/Kailash.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: "Orbitron", Lato, "PT Sans", -apple-system, BlinkMacSystemFont,
     Roboto, Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
 }
 
-.main {
-  background-color: var(--secondary-color);
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr 2fr 1fr;
-  grid-gap: 0.4rem;
-  height: 100vh;
+.description {
   width: 100vw;
+  margin: 0 auto;
+}
+.header {
+  background-color: var(--neutral-color);
+  display: inline-block;
+  padding: 0.3rem 0.6rem 0.6rem 0.6rem;
+}
+.header__biggest {
+  font-size: 1.9rem;
+}
+.header__bigger {
+  font-size: 1.5rem;
+}
+.header__big {
+  font-size: 1.3rem;
+}
+.list {
+  background-color: var(--neutral-color);
+  padding-bottom: 0.6rem;
+  padding-top: 0.6rem;
+}
+.list__unordered {
+}
+.list__ordered {
+}
+.social {
+  display: inline-block;
+  list-style: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.social__media {
+  text-align: center;
 }
 
-@media screen and (min-width: 22rem) {
-  .wrapper {
-    width: 70%;
+@media screen and (min-width: 42rem) {
+  .description {
+    width: 50vw;
   }
 }
 
@@ -36,14 +66,6 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-body,
-div,
-p,
-button {
-  margin: 0;
-  padding: 0;
 }
 
 *:focus {
