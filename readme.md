@@ -24,3 +24,4 @@ As a developer, I want to keep a tally of the total number of correct answers gi
 
 Driver is Kris Riedman
 Navigator is Alex Stoforandov
+Pair Programming session

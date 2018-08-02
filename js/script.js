@@ -85,152 +85,162 @@ var correctAnswersCounter = 0;
 
 // UI part
 // block of yes/no questions
-while (!possibleInput.includes(userInputName)) {
-  var userInputName = prompt(questName).toLowerCase();
-  console.log('The user guess for the 1st question: ' + userInputName);
-  if (
-    answersYes.includes(userInputName) &&
-    possibleInput.includes(userInputName)
-  ) {
-    alert(answerTrue + ' ' + answerName);
-    correctAnswersCounter += 1;
-  } else if (
-    answersNo.includes(userInputName) &&
-    possibleInput.includes(userInputName)
-  ) {
-    alert(answerFalse + ' ' + answerName);
+function askUser() {
+  while (!possibleInput.includes(userInputName)) {
+    var userInputName = prompt(questName).toLowerCase();
+    console.log('The user guess for the 1st question: ' + userInputName);
+    if (
+      answersYes.includes(userInputName) &&
+      possibleInput.includes(userInputName)
+    ) {
+      alert(answerTrue + ' ' + answerName);
+      correctAnswersCounter += 1;
+    } else if (
+      answersNo.includes(userInputName) &&
+      possibleInput.includes(userInputName)
+    ) {
+      alert(answerFalse + ' ' + answerName);
+    }
   }
-}
 
-while (!possibleInput.includes(userInputMotoManufacturer)) {
-  var userInputMotoManufacturer = prompt(questMotoManufacturer);
-  console.log(
-    'The user guess for the 2nd question: ' + userInputMotoManufacturer
-  );
-  if (
-    answersYes.includes(userInputMotoManufacturer) &&
-    possibleInput.includes(userInputMotoManufacturer)
-  ) {
-    alert(answerFalse + ' ' + answerMotoManufacturer);
-  } else if (
-    answersNo.includes(userInputMotoManufacturer) &&
-    possibleInput.includes(userInputMotoManufacturer)
-  ) {
-    alert(answerTrue + ' ' + answerMotoManufacturer);
-    correctAnswersCounter += 1;
+  while (!possibleInput.includes(userInputMotoManufacturer)) {
+    var userInputMotoManufacturer = prompt(questMotoManufacturer);
+    console.log(
+      'The user guess for the 2nd question: ' + userInputMotoManufacturer
+    );
+    if (
+      answersYes.includes(userInputMotoManufacturer) &&
+      possibleInput.includes(userInputMotoManufacturer)
+    ) {
+      alert(answerFalse + ' ' + answerMotoManufacturer);
+    } else if (
+      answersNo.includes(userInputMotoManufacturer) &&
+      possibleInput.includes(userInputMotoManufacturer)
+    ) {
+      alert(answerTrue + ' ' + answerMotoManufacturer);
+      correctAnswersCounter += 1;
+    }
   }
-}
 
-while (!possibleInput.includes(userInputRussianSchools)) {
-  var userInputRussianSchools = prompt(questRussianSchools);
-  console.log(
-    'The user guess for the 3rd question: ' + userInputRussianSchools
-  );
-  if (
-    answersYes.includes(userInputRussianSchools) &&
-    possibleInput.includes(userInputRussianSchools)
-  ) {
-    alert(answerFalse + ' ' + answerRussianSchools);
-  } else if (
-    answersNo.includes(userInputRussianSchools) &&
-    possibleInput.includes(userInputRussianSchools)
-  ) {
-    alert(answerTrue + ' ' + answerRussianSchools);
-    correctAnswersCounter += 1;
+  while (!possibleInput.includes(userInputRussianSchools)) {
+    var userInputRussianSchools = prompt(questRussianSchools);
+    console.log(
+      'The user guess for the 3rd question: ' + userInputRussianSchools
+    );
+    if (
+      answersYes.includes(userInputRussianSchools) &&
+      possibleInput.includes(userInputRussianSchools)
+    ) {
+      alert(answerFalse + ' ' + answerRussianSchools);
+    } else if (
+      answersNo.includes(userInputRussianSchools) &&
+      possibleInput.includes(userInputRussianSchools)
+    ) {
+      alert(answerTrue + ' ' + answerRussianSchools);
+      correctAnswersCounter += 1;
+    }
   }
-}
 
-while (!possibleInput.includes(userInputTibet)) {
-  var userInputTibet = prompt(questTibet);
-  console.log('The user guess for the 4th question: ' + userInputTibet);
-  if (
-    answersYes.includes(userInputTibet) &&
-    possibleInput.includes(userInputTibet)
-  ) {
-    alert(answerFalse + ' ' + answerTibet);
-  } else if (
-    answersNo.includes(userInputTibet) &&
-    possibleInput.includes(userInputTibet)
-  ) {
-    alert(answerTrue + ' ' + answerTibet);
-    correctAnswersCounter += 1;
+  while (!possibleInput.includes(userInputTibet)) {
+    var userInputTibet = prompt(questTibet);
+    console.log('The user guess for the 4th question: ' + userInputTibet);
+    if (
+      answersYes.includes(userInputTibet) &&
+      possibleInput.includes(userInputTibet)
+    ) {
+      alert(answerFalse + ' ' + answerTibet);
+    } else if (
+      answersNo.includes(userInputTibet) &&
+      possibleInput.includes(userInputTibet)
+    ) {
+      alert(answerTrue + ' ' + answerTibet);
+      correctAnswersCounter += 1;
+    }
   }
-}
 
-while (!possibleInput.includes(userInputStates)) {
-  var userInputStates = prompt(questStates);
-  console.log('The user guess for the 5th question: ' + userInputStates);
-  if (
-    answersYes.includes(userInputStates) &&
-    possibleInput.includes(userInputStates)
-  ) {
-    alert(answerFalse + ' ' + answerStates);
-  } else if (
-    answersNo.includes(userInputStates) &&
-    possibleInput.includes(userInputStates)
-  ) {
-    alert(answerTrue + ' ' + answerStates);
-    correctAnswersCounter += 1;
+  while (!possibleInput.includes(userInputStates)) {
+    var userInputStates = prompt(questStates);
+    console.log('The user guess for the 5th question: ' + userInputStates);
+    if (
+      answersYes.includes(userInputStates) &&
+      possibleInput.includes(userInputStates)
+    ) {
+      alert(answerFalse + ' ' + answerStates);
+    } else if (
+      answersNo.includes(userInputStates) &&
+      possibleInput.includes(userInputStates)
+    ) {
+      alert(answerTrue + ' ' + answerStates);
+      correctAnswersCounter += 1;
+    }
   }
 }
 
 // numeric question
-var i = 4;
-console.group();
-console.log('The random answer: ' + answerNumeric);
-do {
-  // ask for the number and check input type
-  var userInputNumeric = prompt(questNumeric);
-  console.log(
-    'Expected number, got ' +
-      userInputNumeric +
-      '. Is it a number: ' +
-      !isNaN(Number(userInputNumeric))
-  );
-  while (isNaN(Number(userInputNumeric))) {
-    userInputNumeric = prompt(questNumeric);
+function askNumeric() {
+  var i = 4;
+  console.group();
+  console.log('The random answer: ' + answerNumeric);
+  do {
+    // ask for the number and check input type
+    var userInputNumeric = prompt(questNumeric);
     console.log(
       'Expected number, got ' +
         userInputNumeric +
         '. Is it a number: ' +
         !isNaN(Number(userInputNumeric))
     );
-  }
+    while (isNaN(Number(userInputNumeric))) {
+      userInputNumeric = prompt(questNumeric);
+      console.log(
+        'Expected number, got ' +
+          userInputNumeric +
+          '. Is it a number: ' +
+          !isNaN(Number(userInputNumeric))
+      );
+    }
 
-  // check whether the user answer is correct
-  userInputNumeric = Number(userInputNumeric);
-  i -= 1;
-  console.log(i + ' steps left');
-  if (userInputNumeric > answerNumeric)
-    alert(answerHigh + ' Attempts left: ' + i);
-  else if (userInputNumeric < answerNumeric)
-    alert(answerLow + ' Attempts left: ' + i);
-  else if (userInputNumeric === answerNumeric) {
-    alert(answerTrue);
-    correctAnswersCounter += 1;
-    console.log('Answer is correct');
-  }
-  if (i === 0 && userInputNumeric !== answerNumeric) alert(attemptsExhausted);
-} while (i > 0 && userInputNumeric !== answerNumeric);
-console.groupEnd();
+    // check whether the user answer is correct
+    userInputNumeric = Number(userInputNumeric);
+    i -= 1;
+    console.log(i + ' steps left');
+    if (userInputNumeric > answerNumeric)
+      alert(answerHigh + ' Attempts left: ' + i);
+    else if (userInputNumeric < answerNumeric)
+      alert(answerLow + ' Attempts left: ' + i);
+    else if (userInputNumeric === answerNumeric) {
+      alert(answerTrue);
+      correctAnswersCounter += 1;
+      console.log('Answer is correct');
+    }
+    if (i === 0 && userInputNumeric !== answerNumeric) alert(attemptsExhausted);
+  } while (i > 0 && userInputNumeric !== answerNumeric);
+  console.groupEnd();
+}
 
 // Question with multiple correct answers
-var i = 6;
-do {
-  // ask for the country name
-  var userInputMultiCorrect = prompt(questMultiCorrect);
-  console.log('The user guess for the 7st question: ' + userInputMultiCorrect);
+function askMultiple() {
+  var i = 6;
+  do {
+    // ask for the country name
+    var userInputMultiCorrect = prompt(questMultiCorrect);
+    console.log('The user guess for the 7st question: ' + userInputMultiCorrect);
 
-  // check whether the user answer is correct
-  i -= 1;
-  console.log(i + ' steps left');
-  if (answerMultiCorrect.includes(userInputMultiCorrect)) {
-    alert(answerTrue);
-    correctAnswersCounter += 1;
-    i = 0;
-    console.log('Answer is correct');
-  } else alert(answerFalse + ' Attempts left: ' + i);
-} while (i > 0);
+    // check whether the user answer is correct
+    i -= 1;
+    console.log(i + ' steps left');
+    if (answerMultiCorrect.includes(userInputMultiCorrect)) {
+      alert(answerTrue);
+      correctAnswersCounter += 1;
+      i = 0;
+      console.log('Answer is correct');
+    } else alert(answerFalse + ' Attempts left: ' + i);
+  } while (i > 0);
+}
+
+askUser();
+askNumeric();
+askMultiple();
 
 alert(
   'End of the game! ' +
