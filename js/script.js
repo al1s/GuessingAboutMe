@@ -32,23 +32,17 @@ alert('Hello ' + userName + '. I\'d like to offer you play a guessing game.');
 console.log('The user entered: ' + userName);
 
 // questions' pool
-var questName = 'Do you believe my full name is Aleksandr Vladimirovich?';
-var questMotoManufacturer =
-  'I like motocycles. And all of those I had ' +
-  'were - Harley-Davidson. Do you believe it?';
-var questRussianSchools =
-  'I\'m from Russia. And in russian schools it\'s forbidden to talk during the class ' +
-  'hours. And those who violate this rule are expelled from school after a ' +
-  'second official warning?';
-var questTibet =
-  'I went to Tibet. And climbed Everest - the North Face of it. Do you think it\'s true?';
-var questStates =
-  'I came to the USA in a middle of 2016. Since than I\'ve worked in 10 ' +
-  'different states, including Texas, Massachusetts, Colorado, California, ' +
-  'New York, Nevada and North Carolina. Do you believe it?';
 var questNumeric = 'What is the meaning of life if it\'s filled with surprises?';
 var questMultiCorrect = 'What country besides the USA and Russia I\'ve been?';
-var questions = [questName, questMotoManufacturer, questRussianSchools, questTibet, questStates];
+var questions = ['Do you believe my full name is Aleksandr Vladimirovich?',
+  'I like motocycles. And all of those I had ' +
+'were - Harley-Davidson. Do you believe it?',
+  'I\'m from Russia. And in russian schools it\'s forbidden to talk during the class ' +
+'hours. And those who violate this rule are expelled from school after a ' +
+'second official warning?', 'I went to Tibet. And climbed Everest - the North Face of it. Do you think it\'s true?',
+  'I came to the USA in a middle of 2016. Since than I\'ve worked in 10 ' +
+'different states, including Texas, Massachusetts, Colorado, California, ' +
+'New York, Nevada and North Carolina. Do you believe it?'];
 
 var answerTrue = 'You are correct!';
 var answerFalse = 'It\'s not correct!';
@@ -56,23 +50,14 @@ var answerHigh = 'Too high!';
 var answerLow = 'Too low!';
 var attemptsExhausted = 'Exhausted all attempts!';
 var possibleInput = ['yes', 'y', 'yep', 'no', 'n', 'nop'];
-var answersYes = ['yes', 'y', 'yep'];
-var answersNo = ['no', 'n', 'nop'];
 var correctAnswer = ['y', 'n', 'n', 'n', 'n'];
 
 // answers' pool
-var answerName =
-  'It\'s indeed long. I mean first + ' +
-  'middle together are \'Aleksandr Vladimirovich\'.';
-var answerMotoManufacturer = 'They were BMW.';
-var answerRussianSchools =
-  'Russian schools are stricter then schools in the USA. ' +
-  'But not such strict.';
-var answerTibet =
-  'I was in Tibet and I was at the Everest\'s base camp, ' +
-  'but I\'m not an alpinist and never climbed big mountains.';
-var answerStates = 'I\'ve worked only in Greater Seattle area.';
-var answers = [answerName, answerMotoManufacturer, answerRussianSchools, answerTibet, answerStates];
+var answers = ['It\'s indeed long. I mean first + ' +
+'middle together are \'Aleksandr Vladimirovich\'.', 'They were BMW.',
+'Russian schools are stricter then schools in the USA. ' +
+'But not such strict.', 'I was in Tibet and I was at the Everest\'s base camp, ' +
+'but I\'m not an alpinist and never climbed big mountains.', 'I\'ve worked only in Greater Seattle area.'];
 var answerMultiCorrect = [
   'Mongolia',
   'Spain',
@@ -89,7 +74,7 @@ var correctAnswersCounter = 0;
 // UI part
 // block of yes/no questions
 function checkAlert(question, index, answers) {
-  console.log('The user guess for the 1st question: ' + userInput);
+  console.log('The user guess for the ' + (index + 1) + ' question: ' + userInput);
   if (userInput.slice(0, 1) === correctAnswer[index]) {
     alert(answerTrue + ' ' + answers[index]);
     correctAnswersCounter += 1;
@@ -112,67 +97,70 @@ for (var i = 0; i < answers.length; i++) {
   checkAlert(userInput, i, answers);
 }
 
-// // numeric question
-// function askNumeric() {
-//   var i = 4;
-//   console.group();
-//   console.log('The random answer: ' + answerNumeric);
-//   do {
-//     // ask for the number and check input type
-//     var userInputNumeric = prompt(questNumeric);
-//     console.log(
-//       'Expected number, got ' +
-//         userInputNumeric +
-//         '. Is it a number: ' +
-//         !isNaN(Number(userInputNumeric))
-//     );
-//     while (isNaN(Number(userInputNumeric))) {
-//       userInputNumeric = prompt(questNumeric);
-//       console.log(
-//         'Expected number, got ' +
-//           userInputNumeric +
-//           '. Is it a number: ' +
-//           !isNaN(Number(userInputNumeric))
-//       );
-//     }
+// numeric question
+function askNumeric() {
+  var i = 4;
+  console.group();
+  console.log('The random answer: ' + answerNumeric);
+  do {
+    // ask for the number and check input type
+    var userInputNumeric = prompt(questNumeric);
+    console.log(
+      'Expected number, got ' +
+        userInputNumeric +
+        '. Is it a number: ' +
+        !isNaN(Number(userInputNumeric))
+    );
+    while (isNaN(Number(userInputNumeric))) {
+      userInputNumeric = prompt(questNumeric);
+      console.log(
+        'Expected number, got ' +
+          userInputNumeric +
+          '. Is it a number: ' +
+          !isNaN(Number(userInputNumeric))
+      );
+    }
 
-//     // check whether the user answer is correct
-//     userInputNumeric = Number(userInputNumeric);
-//     i -= 1;
-//     console.log(i + ' steps left');
-//     if (userInputNumeric > answerNumeric)
-//       alert(answerHigh + ' Attempts left: ' + i);
-//     else if (userInputNumeric < answerNumeric)
-//       alert(answerLow + ' Attempts left: ' + i);
-//     else if (userInputNumeric === answerNumeric) {
-//       alert(answerTrue);
-//       correctAnswersCounter += 1;
-//       console.log('Answer is correct');
-//     }
-//     if (i === 0 && userInputNumeric !== answerNumeric) alert(attemptsExhausted);
-//   } while (i > 0 && userInputNumeric !== answerNumeric);
-//   console.groupEnd();
-// }
+    // check whether the user answer is correct
+    userInputNumeric = Number(userInputNumeric);
+    i -= 1;
+    console.log(i + ' steps left');
+    if (userInputNumeric > answerNumeric)
+      alert(answerHigh + ' Attempts left: ' + i);
+    else if (userInputNumeric < answerNumeric)
+      alert(answerLow + ' Attempts left: ' + i);
+    else if (userInputNumeric === answerNumeric) {
+      alert(answerTrue);
+      correctAnswersCounter += 1;
+      console.log('Answer is correct');
+    }
+    if (i === 0 && userInputNumeric !== answerNumeric) alert(attemptsExhausted);
+  } while (i > 0 && userInputNumeric !== answerNumeric);
+  console.groupEnd();
+}
 
-// // Question with multiple correct answers
-// function askMultiple() {
-//   var i = 6;
-//   do {
-//     // ask for the country name
-//     var userInputMultiCorrect = prompt(questMultiCorrect);
-//     console.log('The user guess for the 7st question: ' + userInputMultiCorrect);
+// Question with multiple correct answers
+function askMultiple() {
+  var i = 6;
+  do {
+    // ask for the country name
+    var userInputMultiCorrect = prompt(questMultiCorrect);
+    console.log('The user guess for the 7st question: ' + userInputMultiCorrect);
 
-//     // check whether the user answer is correct
-//     i -= 1;
-//     console.log(i + ' steps left');
-//     if (answerMultiCorrect.includes(userInputMultiCorrect)) {
-//       alert(answerTrue);
-//       correctAnswersCounter += 1;
-//       i = 0;
-//       console.log('Answer is correct');
-//     } else alert(answerFalse + ' Attempts left: ' + i);
-//   } while (i > 0);
-// }
+    // check whether the user answer is correct
+    i -= 1;
+    console.log(i + ' steps left');
+    if (answerMultiCorrect.includes(userInputMultiCorrect)) {
+      alert(answerTrue);
+      correctAnswersCounter += 1;
+      i = 0;
+      console.log('Answer is correct');
+    } else alert(answerFalse + ' Attempts left: ' + i);
+  } while (i > 0);
+}
+
+askNumeric();
+askMultiple();
 
 alert(
   'End of the game! ' +
