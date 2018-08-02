@@ -32,22 +32,17 @@ alert('Hello ' + userName + '. I\'d like to offer you play a guessing game.');
 console.log('The user entered: ' + userName);
 
 // questions' pool
-var questName = 'Do you believe my full name is Aleksandr Vladimirovich?';
-var questMotoManufacturer =
-  'I like motocycles. And all of those I had ' +
-  'were - Harley-Davidson. Do you believe it?';
-var questRussianSchools =
-  'I\'m from Russia. And in russian schools it\'s forbidden to talk during the class ' +
-  'hours. And those who violate this rule are expelled from school after a ' +
-  'second official warning?';
-var questTibet =
-  'I went to Tibet. And climbed Everest - the North Face of it. Do you think it\'s true?';
-var questStates =
-  'I came to the USA in a middle of 2016. Since than I\'ve worked in 10 ' +
-  'different states, including Texas, Massachusetts, Colorado, California, ' +
-  'New York, Nevada and North Carolina. Do you believe it?';
 var questNumeric = 'What is the meaning of life if it\'s filled with surprises?';
 var questMultiCorrect = 'What country besides the USA and Russia I\'ve been?';
+var questions = ['Do you believe my full name is Aleksandr Vladimirovich?',
+  'I like motocycles. And all of those I had ' +
+'were - Harley-Davidson. Do you believe it?',
+  'I\'m from Russia. And in russian schools it\'s forbidden to talk during the class ' +
+'hours. And those who violate this rule are expelled from school after a ' +
+'second official warning?', 'I went to Tibet. And climbed Everest - the North Face of it. Do you think it\'s true?',
+  'I came to the USA in a middle of 2016. Since than I\'ve worked in 10 ' +
+'different states, including Texas, Massachusetts, Colorado, California, ' +
+'New York, Nevada and North Carolina. Do you believe it?'];
 
 var answerTrue = 'You are correct!';
 var answerFalse = 'It\'s not correct!';
@@ -55,21 +50,14 @@ var answerHigh = 'Too high!';
 var answerLow = 'Too low!';
 var attemptsExhausted = 'Exhausted all attempts!';
 var possibleInput = ['yes', 'y', 'yep', 'no', 'n', 'nop'];
-var answersYes = ['yes', 'y', 'yep'];
-var answersNo = ['no', 'n', 'nop'];
+var correctAnswer = ['y', 'n', 'n', 'n', 'n'];
 
 // answers' pool
-var answerName =
-  'It\'s indeed long. I mean first + ' +
-  'middle together are \'Aleksandr Vladimirovich\'.';
-var answerMotoManufacturer = 'They were BMW.';
-var answerRussianSchools =
-  'Russian schools are stricter then schools in the USA. ' +
-  'But not such strict.';
-var answerTibet =
-  'I was in Tibet and I was at the Everest\'s base camp, ' +
-  'but I\'m not an alpinist and never climbed big mountains.';
-var answerStates = 'I\'ve worked only in Greater Seattle area.';
+var answers = ['It\'s indeed long. I mean first + ' +
+'middle together are \'Aleksandr Vladimirovich\'.', 'They were BMW.',
+'Russian schools are stricter then schools in the USA. ' +
+'But not such strict.', 'I was in Tibet and I was at the Everest\'s base camp, ' +
+'but I\'m not an alpinist and never climbed big mountains.', 'I\'ve worked only in Greater Seattle area.'];
 var answerMultiCorrect = [
   'Mongolia',
   'Spain',
@@ -85,152 +73,94 @@ var correctAnswersCounter = 0;
 
 // UI part
 // block of yes/no questions
-while (!possibleInput.includes(userInputName)) {
-  var userInputName = prompt(questName).toLowerCase();
-  console.log('The user guess for the 1st question: ' + userInputName);
-  if (
-    answersYes.includes(userInputName) &&
-    possibleInput.includes(userInputName)
-  ) {
-    alert(answerTrue + ' ' + answerName);
+function checkAlert(question, index, answers) {
+  console.log('The user guess for the ' + (index + 1) + ' question: ' + userInput);
+  if (userInput.slice(0, 1) === correctAnswer[index]) {
+    alert(answerTrue + ' ' + answers[index]);
     correctAnswersCounter += 1;
-  } else if (
-    answersNo.includes(userInputName) &&
-    possibleInput.includes(userInputName)
-  ) {
-    alert(answerFalse + ' ' + answerName);
+  } else {
+    alert(answerFalse + ' ' + answers[index]);
   }
 }
 
-while (!possibleInput.includes(userInputMotoManufacturer)) {
-  var userInputMotoManufacturer = prompt(questMotoManufacturer);
-  console.log(
-    'The user guess for the 2nd question: ' + userInputMotoManufacturer
-  );
-  if (
-    answersYes.includes(userInputMotoManufacturer) &&
-    possibleInput.includes(userInputMotoManufacturer)
-  ) {
-    alert(answerFalse + ' ' + answerMotoManufacturer);
-  } else if (
-    answersNo.includes(userInputMotoManufacturer) &&
-    possibleInput.includes(userInputMotoManufacturer)
-  ) {
-    alert(answerTrue + ' ' + answerMotoManufacturer);
-    correctAnswersCounter += 1;
-  }
+function validateInput(userInput) {
+  return possibleInput.includes(userInput);
 }
 
-while (!possibleInput.includes(userInputRussianSchools)) {
-  var userInputRussianSchools = prompt(questRussianSchools);
-  console.log(
-    'The user guess for the 3rd question: ' + userInputRussianSchools
-  );
-  if (
-    answersYes.includes(userInputRussianSchools) &&
-    possibleInput.includes(userInputRussianSchools)
-  ) {
-    alert(answerFalse + ' ' + answerRussianSchools);
-  } else if (
-    answersNo.includes(userInputRussianSchools) &&
-    possibleInput.includes(userInputRussianSchools)
-  ) {
-    alert(answerTrue + ' ' + answerRussianSchools);
-    correctAnswersCounter += 1;
+for (var i = 0; i < answers.length; i++) {
+  var userInput;
+  var inputValid = false;
+  while (!inputValid) {
+    userInput = prompt(questions[i]).toLowerCase();
+    inputValid = validateInput(userInput);
   }
-}
-
-while (!possibleInput.includes(userInputTibet)) {
-  var userInputTibet = prompt(questTibet);
-  console.log('The user guess for the 4th question: ' + userInputTibet);
-  if (
-    answersYes.includes(userInputTibet) &&
-    possibleInput.includes(userInputTibet)
-  ) {
-    alert(answerFalse + ' ' + answerTibet);
-  } else if (
-    answersNo.includes(userInputTibet) &&
-    possibleInput.includes(userInputTibet)
-  ) {
-    alert(answerTrue + ' ' + answerTibet);
-    correctAnswersCounter += 1;
-  }
-}
-
-while (!possibleInput.includes(userInputStates)) {
-  var userInputStates = prompt(questStates);
-  console.log('The user guess for the 5th question: ' + userInputStates);
-  if (
-    answersYes.includes(userInputStates) &&
-    possibleInput.includes(userInputStates)
-  ) {
-    alert(answerFalse + ' ' + answerStates);
-  } else if (
-    answersNo.includes(userInputStates) &&
-    possibleInput.includes(userInputStates)
-  ) {
-    alert(answerTrue + ' ' + answerStates);
-    correctAnswersCounter += 1;
-  }
+  checkAlert(userInput, i, answers);
 }
 
 // numeric question
-var i = 4;
-console.group();
-console.log('The random answer: ' + answerNumeric);
-do {
-  // ask for the number and check input type
-  var userInputNumeric = prompt(questNumeric);
-  console.log(
-    'Expected number, got ' +
-      userInputNumeric +
-      '. Is it a number: ' +
-      !isNaN(Number(userInputNumeric))
-  );
-  while (isNaN(Number(userInputNumeric))) {
-    userInputNumeric = prompt(questNumeric);
+function askNumeric() {
+  var i = 4;
+  console.group();
+  console.log('The random answer: ' + answerNumeric);
+  do {
+    // ask for the number and check input type
+    var userInputNumeric = prompt(questNumeric);
     console.log(
       'Expected number, got ' +
         userInputNumeric +
         '. Is it a number: ' +
         !isNaN(Number(userInputNumeric))
     );
-  }
+    while (isNaN(Number(userInputNumeric))) {
+      userInputNumeric = prompt(questNumeric);
+      console.log(
+        'Expected number, got ' +
+          userInputNumeric +
+          '. Is it a number: ' +
+          !isNaN(Number(userInputNumeric))
+      );
+    }
 
-  // check whether the user answer is correct
-  userInputNumeric = Number(userInputNumeric);
-  i -= 1;
-  console.log(i + ' steps left');
-  if (userInputNumeric > answerNumeric)
-    alert(answerHigh + ' Attempts left: ' + i);
-  else if (userInputNumeric < answerNumeric)
-    alert(answerLow + ' Attempts left: ' + i);
-  else if (userInputNumeric === answerNumeric) {
-    alert(answerTrue);
-    correctAnswersCounter += 1;
-    console.log('Answer is correct');
-  }
-  if (i === 0 && userInputNumeric !== answerNumeric) alert(attemptsExhausted);
-} while (i > 0 && userInputNumeric !== answerNumeric);
-console.groupEnd();
+    // check whether the user answer is correct
+    userInputNumeric = Number(userInputNumeric);
+    i -= 1;
+    console.log(i + ' steps left');
+    if (userInputNumeric > answerNumeric)
+      alert(answerHigh + ' Attempts left: ' + i);
+    else if (userInputNumeric < answerNumeric)
+      alert(answerLow + ' Attempts left: ' + i);
+    else if (userInputNumeric === answerNumeric) {
+      alert(answerTrue);
+      correctAnswersCounter += 1;
+      console.log('Answer is correct');
+    }
+    if (i === 0 && userInputNumeric !== answerNumeric) alert(attemptsExhausted);
+  } while (i > 0 && userInputNumeric !== answerNumeric);
+  console.groupEnd();
+}
 
 // Question with multiple correct answers
-var i = 6;
-do {
-  // ask for the country name
-  var userInputMultiCorrect = prompt(questMultiCorrect);
-  console.log('The user guess for the 7st question: ' + userInputMultiCorrect);
+function askMultiple() {
+  var i = 6;
+  do {
+    // ask for the country name
+    var userInputMultiCorrect = prompt(questMultiCorrect);
+    console.log('The user guess for the 7st question: ' + userInputMultiCorrect);
 
-  // check whether the user answer is correct
-  i -= 1;
-  console.log(i + ' steps left');
-  if (answerMultiCorrect.includes(userInputMultiCorrect)) {
-    alert(answerTrue);
-    correctAnswersCounter += 1;
-    i = 0;
-    console.log('Answer is correct');
-  } else alert(answerFalse + ' Attempts left: ' + i);
-} while (i > 0);
+    // check whether the user answer is correct
+    i -= 1;
+    console.log(i + ' steps left');
+    if (answerMultiCorrect.includes(userInputMultiCorrect)) {
+      alert(answerTrue);
+      correctAnswersCounter += 1;
+      i = 0;
+      console.log('Answer is correct');
+    } else alert(answerFalse + ' Attempts left: ' + i);
+  } while (i > 0);
+}
+
+askNumeric();
+askMultiple();
 
 alert(
   'End of the game! ' +
