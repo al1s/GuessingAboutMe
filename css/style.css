@@ -18,35 +18,55 @@ body {
   width: 100vw;
   margin: 0 auto;
 }
+
 .header {
   background-color: var(--neutral-color);
   display: inline-block;
   padding: 0.3rem 0.6rem 0.6rem 0.6rem;
 }
+
 .header__biggest {
   font-size: 1.9rem;
 }
+
 .header__bigger {
   font-size: 1.5rem;
 }
+
 .header__big {
   font-size: 1.3rem;
 }
+
 .list {
   background-color: var(--neutral-color);
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
 }
-.list__unordered {
+
+.list__element {
+  font-size: 1.9rem;
+  list-style: none;
 }
-.list__ordered {
+
+.element__details {
+  font-size: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
 }
+
+.list__element:hover .element__details {
+  max-height: 5rem;
+  transition: max-height 0.5s ease-in;
+}
+
 .social {
   display: inline-block;
   list-style: none;
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
 .social__media {
   text-align: center;
 }
