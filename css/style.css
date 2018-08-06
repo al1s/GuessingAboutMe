@@ -9,55 +9,186 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: "Orbitron", Lato, "PT Sans", -apple-system, BlinkMacSystemFont,
+  font-family: "Exo 2", Lato, "PT Sans", -apple-system, BlinkMacSystemFont,
     Roboto, Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .description {
-  width: 100vw;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto minmax(30rem, 1fr) auto auto;
+  grid-template-areas:
+    "head   head    head    .       btn"
+    ".      list    list    list    ."
+    "places places places places places"
+    ".      social  social  social  .";
 }
 
 .header {
   background-color: var(--neutral-color);
-  display: inline-block;
-  padding: 0.3rem 0.6rem 0.6rem 0.6rem;
+  padding: 0.3rem 0.6rem 0.6rem;
 }
 
 .header__biggest {
+  display: inline-block;
   font-size: 1.9rem;
+  grid-area: head;
+  padding-left: 7rem;
 }
 
 .header__bigger {
   font-size: 1.5rem;
+  margin-bottom: 0;
 }
 
 .header__big {
   font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.btn {
+  background-color: var(--neutral-color);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  grid-area: btn;
+  height: 6rem;
+  position: absolute;
+  transform: rotate(-25deg);
+  transform-origin: center;
+  width: 6rem;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+  outline: 3px solid seagreen;
 }
 
 .list {
   background-color: var(--neutral-color);
-  padding-bottom: 0.6rem;
-  padding-top: 0.6rem;
+  margin-bottom: 0.2rem;
+  margin-top: 0.4rem;
+  padding-bottom: 0.3rem;
+  padding-top: 0.3rem;
+}
+
+.list__smooth-open {
+  grid-area: list;
+}
+.list__unordered {
+  list-style: none;
+  padding-left: 0.7rem;
+}
+
+.list__ordered {
+  list-style: none;
+  padding-left: 1.9rem;
 }
 
 .list__element {
   font-size: 1.9rem;
-  list-style: none;
 }
 
 .element__details {
   font-size: 1rem;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.9s ease-out;
 }
 
 .list__element:hover .element__details {
   max-height: 5rem;
-  transition: max-height 0.5s ease-in;
+  transition: max-height 0.3s ease-in;
+}
+
+.list__media {
+  background-color: var(--neutral-color);
+  grid-area: places;
+  display: grid;
+  grid-template-columns: repeat(5, 20vw);
+  grid-template-rows: max-content 20vw;
+  grid-template-areas:
+    ".    head head head ."
+    "a    b    c    d    e";
+  padding-bottom: 0.6rem;
+  padding-top: 0.3rem;
+}
+
+.media__header {
+  grid-area: head;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  margin-top: 0;
+}
+
+.media__list {
+  display: contents;
+}
+
+.media__element {
+  position: relative;
+}
+
+.media__element:nth-of-type(1) {
+  grid-area: a;
+}
+
+.media__element:nth-of-type(2) {
+  grid-area: b;
+}
+
+.media__element:nth-of-type(3) {
+  grid-area: c;
+}
+
+.media__element:nth-of-type(4) {
+  grid-area: d;
+}
+
+.media__element:nth-of-type(5) {
+  grid-area: e;
+}
+
+.media__img {
+  border-radius: 50%;
+  display: block;
+  height: 20vw;
+  max-height: 15rem;
+  max-width: 15rem;
+  transition: opacity 0.3s ease-out;
+  width: 20vw;
+  z-index: 2;
+}
+
+.media__caption {
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  transition: opacity 0.3s ease-out;
+  width: 100%;
+  z-index: 1;
+}
+
+.media__img:hover {
+  opacity: 0.2;
+  transition: opacity 0.3s ease-in;
+}
+
+.media__img:hover + .media__caption {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+.list__social {
+  grid-area: social;
 }
 
 .social {
@@ -72,9 +203,6 @@ body {
 }
 
 @media screen and (min-width: 42rem) {
-  .description {
-    width: 50vw;
-  }
 }
 
 html {

@@ -12,9 +12,11 @@
 
 <body>
   <main>
-    <h1 class="header  header__biggest">Some facts about me</h1>
     <article class="description">
-      <section>
+      <h1 class="header  header__biggest">Some facts about me</h1>
+      <button class="btn" tabindex="0">Play to learn more</button>
+
+      <section class="list__smooth-open">
         <h2 class="header  header__bigger">Working experience:</h2>
         <h3 class="header  header__big">
           Data engineer, Gazprombank, Moscow, Russia
@@ -52,45 +54,46 @@
           </li>
         </ul>
       </section>
-      <!--
-      <section>
-        <h3 class="header  header__bigger">Data engineer, Gazprombank, Moscow, Russia</h3>
-        <ul class="list  list__unordered">
-          <li>
-            Implemented card processing backend migration modules. Outcome: data center processing increased from 0.5 M to 2 M financial
-            transactions daily.
-          </li>
-          <li>
-            Developed and maintained automated disputes resolution modules with PL/SQL, Unix-shell, and Visual Basic. It allowed delegating
-            simplified operations to customer support specialists.
+      <section class="list__media">
+        <h2 class="header  header__bigger  media__header">Places I plan to visit</h2>
+        <ol class="list  list__ordered  media__list">
+          <li class="media__element">
+            <img class="media__img" src="img/new-york.jpg" alt="Photo of New York">
+            <div class="media__caption">New York, USA</div>
 
           </li>
-          <li>
-            Established card processing control and monitoring system (batch data processing workflow) with the use of Bash and Perl
-            scripts plus PL/SQL function/procedures.
+          <li class="media__element">
+            <img class="media__img" src="img/kyoto.jpg" alt="Photo of Kyoto">
+            <div class="media__caption">Kyoto, Japan</div>
           </li>
-        </ul>-->
-      <h2 class="header  header__bigger">Top 5 places I plan to visit</h2>
-      <ol class="list  list__ordered">
-        <li>New York, USA</li>
-        <li>Japan (Kyoto, Tokyo)</li>
-        <li>New Zeland</li>
-        <li>Iceland</li>
-        <li>Brazil</li>
-      </ol>
+          <li class="media__element">
+            <img class="media__img" src="img/australia.jpg" alt="Photo of Sidney York">
+            <div class="media__caption">Australia</div>
+          </li>
+          <li class="media__element">
+            <img class="media__img" src="img/iceland.jpg" alt="Photo of Iceland">
+            <div class="media__caption">Iceland</div>
+          </li>
+          <li class="media__element">
+            <img class="media__img" src="img/brazil.jpg" alt="Photo of Rio, Brazil">
+            <div class="media__caption">Brazil</div>
+          </li>
+        </ol>
 
       </section>
-      <ul class="list  list__ordered  social__media">
-        <li class="social  social__github">
-          <a href="https://github.com/al1s/">Github</a>
-        </li>
-        <li class="social  social__linkedin">
-          <a href="https://www.linkedin.com/in/alstof">LinkedIn</a>
-        </li>
-        <li class="social  social__blog">
-          <a href="http://al1s.github.io/">Blog</a>
-        </li>
-      </ul>
+      <section class="list__social">
+        <ul class="list  list__ordered  social__media">
+          <li class="social  social__github">
+            <a href="https://github.com/al1s/">Github</a>
+          </li>
+          <li class="social  social__linkedin">
+            <a href="https://www.linkedin.com/in/alstof">LinkedIn</a>
+          </li>
+          <li class="social  social__blog">
+            <a href="http://al1s.github.io/">Blog</a>
+          </li>
+        </ul>
+      </section>
     </article>
   </main>
 </body>

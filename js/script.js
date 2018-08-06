@@ -163,40 +163,47 @@ function informEndGameResults(userName, correctAnswersCounter) {
 }
 
 // Main flow
-var correctAnswersCounter = 0;
-var userName = greetUser();
-// block of yes/no questions
-var questions = [
-  'Do you believe my full name is Aleksandr Vladimirovich?',
-  'I like motocycles. And all of those I had ' +
-    'were - Harley-Davidson. Do you believe it?',
-  'I\'m from Russia. And in russian schools it\'s forbidden to talk during the class ' +
-    'hours. And those who violate this rule are expelled from school after a ' +
-    'second official warning?',
-  'I went to Tibet. And climbed Everest - the North Face of it. Do you think it\'s true?',
-  'I came to the USA in a middle of 2016. Since than I\'ve worked in 10 ' +
-    'different states, including Texas, Massachusetts, Colorado, California, ' +
-    'New York, Nevada and North Carolina. Do you believe it?'
-];
-questions.forEach((question, ndx) => {
-  var userInput;
-  var inputValid = false;
-  var answers = [
-    'It\'s indeed long. I mean first + ' +
-      'middle together are \'Aleksandr Vladimirovich\'.',
-    'They were BMW.',
-    'Russian schools are stricter then schools in the USA. ' +
-      'But not such strict.',
-    'I was in Tibet and I was at the Everest\'s base camp, ' +
-      'but I\'m not an alpinist and never climbed big mountains.',
-    'I\'ve worked only in Greater Seattle area.'
+function clickHandler(e) {
+  console.log(e);
+  var correctAnswersCounter = 0;
+  var userName = greetUser();
+  // block of yes/no questions
+  var questions = [
+    'Do you believe my full name is Aleksandr Vladimirovich?',
+    'I like motocycles. And all of those I had ' +
+      'were - Harley-Davidson. Do you believe it?',
+    'I\'m from Russia. And in russian schools it\'s forbidden to talk during the class ' +
+      'hours. And those who violate this rule are expelled from school after a ' +
+      'second official warning?',
+    'I went to Tibet. And climbed Everest - the North Face of it. Do you think it\'s true?',
+    'I came to the USA in a middle of 2016. Since than I\'ve worked in 10 ' +
+      'different states, including Texas, Massachusetts, Colorado, California, ' +
+      'New York, Nevada and North Carolina. Do you believe it?'
   ];
-  while (!inputValid) {
-    userInput = prompt(question).toLowerCase();
-    inputValid = validateInput(userInput);
-  }
-  correctAnswersCounter += checkAlert(userInput, ndx, answers);
-});
-correctAnswersCounter += askNumeric();
-correctAnswersCounter += askMultiple();
-informEndGameResults(userName, correctAnswersCounter);
+  questions.forEach((question, ndx) => {
+    var userInput;
+    var inputValid = false;
+    var answers = [
+      'It\'s indeed long. I mean first + ' +
+        'middle together are \'Aleksandr Vladimirovich\'.',
+      'They were BMW.',
+      'Russian schools are stricter then schools in the USA. ' +
+        'But not such strict.',
+      'I was in Tibet and I was at the Everest\'s base camp, ' +
+        'but I\'m not an alpinist and never climbed big mountains.',
+      'I\'ve worked only in Greater Seattle area.'
+    ];
+    while (!inputValid) {
+      userInput = prompt(question).toLowerCase();
+      inputValid = validateInput(userInput);
+    }
+    correctAnswersCounter += checkAlert(userInput, ndx, answers);
+  });
+  correctAnswersCounter += askNumeric();
+  correctAnswersCounter += askMultiple();
+  informEndGameResults(userName, correctAnswersCounter);
+}
+
+var btn = document.querySelector('.btn');
+console.log({ btn });
+btn.onclick = clickHandler;
