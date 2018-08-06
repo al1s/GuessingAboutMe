@@ -6,15 +6,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
   <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <h1>Guess facts about me</h1>
-  <p>
-    It's a guessing game where you would be given five Yes/No questions about the page's author.
-  </p>
+  <main>
+    <article class="description">
+      <h1 class="header  header__biggest">Some facts about me</h1>
+      <button class="btn" tabindex="0">Play to learn more</button>
+
+      <section class="list__smooth-open">
+        <h2 class="header  header__bigger">Working experience:</h2>
+        <h3 class="header  header__big">
+          Data engineer, Gazprombank, Moscow, Russia
+        </h3>
+        <ul class="list  list__unordered">
+          <li class="list__element">
+            Data Quality Control
+            <div class="element__details">
+              Implemented data quality control system for daily generated financial and information reports using PL/SQL, Bash, Perl. Outcome:
+              online monitoring dashboards with different metrics of over 2M daily processed transactions were provided for
+              the operational team.</div>
+          </li>
+
+          <li class="list__element">
+            Financial reconciliation
+            <div class="element__details">
+              Provided implementation and maintenance of financial data reconciliation module for over 2M credit card transactions daily.
+              Outcome: tools for successful daily monitoring of outstanding balances provided to the operational and accounting
+              teams.
+            </div>
+          </li>
+          <li class="list__element">
+            PCI DSS compliance audit
+            <div class="element__details">
+              Investigated the compliance of applied software solutions with PCI DSS audit technical requirements. Implemented about 10
+              modules for automatic detection of PCI DSS requirements non-compliance in test and production environments.
+              Outcome: PCI compliance awareness report allowed to detect and eliminate threats at early stages on daily basis.</div>
+          </li>
+          <li class="list__element">
+            Fraud reports
+            <div class="element__details">
+              Developed an automated daily report of potentially fraudulent credit cards transactions. Outcome: risk monitoring department
+              got the tool to trace and prevent financial fund transfers caused by fraudulent transactions. Prevented fund
+              transfers total amount over $1M.</div>
+          </li>
+        </ul>
+      </section>
+      <section class="list__media">
+        <h2 class="header  header__bigger  media__header">Places I plan to visit</h2>
+        <ol class="list  list__ordered  media__list">
+          <li class="media__element">
+            <img class="media__img" src="img/new-york.png" alt="Photo of New York">
+            <div class="media__caption">New York, USA</div>
+
+          </li>
+          <li class="media__element">
+            <img class="media__img" src="img/kyoto.png" alt="Photo of Kyoto">
+            <div class="media__caption">Kyoto, Japan</div>
+          </li>
+          <li class="media__element">
+            <img class="media__img" src="img/australia.png" alt="Photo of Sidney York">
+            <div class="media__caption">Australia</div>
+          </li>
+          <li class="media__element">
+            <img class="media__img" src="img/iceland.png" alt="Photo of Iceland">
+            <div class="media__caption">Iceland</div>
+          </li>
+          <li class="media__element">
+            <img class="media__img" src="img/brazil.png" alt="Photo of Rio, Brazil">
+            <div class="media__caption">Brazil</div>
+          </li>
+        </ol>
+
+      </section>
+      <section class="list__social">
+        <ul class="list  list__ordered  social__media">
+          <li class="social  social__github">
+            <a href="https://github.com/al1s/">Github</a>
+          </li>
+          <li class="social  social__linkedin">
+            <a href="https://www.linkedin.com/in/alstof">LinkedIn</a>
+          </li>
+          <li class="social  social__blog">
+            <a href="http://al1s.github.io/">Blog</a>
+          </li>
+        </ul>
+      </section>
+    </article>
+  </main>
 </body>
+
 <script async src="js/script.js "></script>
 
 </html>
